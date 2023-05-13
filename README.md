@@ -1,2 +1,2 @@
 # Embedded_systems
-It is labs on on embed systems
+It is labs on embed systems
