@@ -1,0 +1,22 @@
+`include "global.vh"
+
+module data_stack (
+input clk,
+input we,
+input [`H:0] push_data, 
+output [`H:0] pop_data);
+
+    reg [`H:0] stack [0:255];
+    reg [`H:0] sp; // указатель на вершину стека
+    
+    always @(posedge clk) begin
+        if (we) begin // операция записи в стек
+            stack[sp] <= push_data;
+            sp <= sp + 1;
+        end else begin // операция удаления из стека
+            sp <= sp - 1;
+            pop_data <= stack[sp];
+        end
+    end
+
+endmodule
